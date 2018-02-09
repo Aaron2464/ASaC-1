@@ -5,4 +5,9 @@ package com.example.aaron.assignmentsw1;
  */
 
 class Hunter extends Human {
+
+    @Override
+    public void attack(){
+        System.out.println("Fist Attack");
+    }
 }
