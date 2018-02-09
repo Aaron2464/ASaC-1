@@ -1,13 +1,16 @@
 package com.example.aaron.assignmentsw1;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+public class Human {
 
-public class Human extends AppCompatActivity {
+   private String name;
+   public final static int FIRE_BOW = 0x01;
+   public final static int ICE_BOW = 0x02;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_human);
-    }
+   public Human(){
+
+   }
+
+   public void attack(){
+       System.out.println("Fist Attack");
+   }
 }
