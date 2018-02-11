@@ -25,7 +25,6 @@ class Warrior extends Human {
 
     public int weaponNO(){
         scanner = new Scanner(System.in);
-        System.out.printf("%s ");
         System.out.printf("Type the number 1-3 to choose your weapon");
         weapon = scanner.nextInt();
         return weapon;
@@ -35,12 +34,16 @@ class Warrior extends Human {
         switch (weapon) {
             case 1:
                 System.out.printf("%s use Default Blade weapon and Slash skill to attack %n", name);
+                break;
             case 2:
                 System.out.printf("%s use Fire Blade weapon and Fire Slash skill to attack %n", name);
+                break;
             case 3:
                 System.out.printf("%s use Ice Blade weapon and Ice Slash skill to attack %n", name);
+                break;
             default:
                 System.out.printf("%s, excuse me, enter the right number, please! %n", name);
+                break;
         }
     }
 }

@@ -34,12 +34,16 @@ class Mage extends Human {
         switch (w) {
             case 1:
                 System.out.printf("%s use Default Staff weapon and Arcane Missiles skill to attack %n", name);
+                break;
             case 2:
                 System.out.printf("%s use Fire Staff weapon and Fireball skill to attack %n", name);
+                break;
             case 3:
                 System.out.printf("%s use Ice Staff weapon and Frostbolt to attack %n", name);
+                break;
             default:
                 System.out.printf("%s, excuse me, enter the right number, please! %n", name);
+                break;
         }
     }
 }

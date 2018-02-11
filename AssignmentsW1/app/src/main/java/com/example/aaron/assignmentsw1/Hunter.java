@@ -34,12 +34,16 @@ class Hunter extends Human {
         switch (weapon) {
             case 1:
                 System.out.printf("%s use Default Bow weapon and Arrow skill to attack %n", name);
+                break;
             case 2:
                 System.out.printf("%s use Fire Bow weapon and Fire Arrow skill to attack %n", name);
+                break;
             case 3:
                 System.out.printf("%s use Ice Bow weapon and Ice Arrow skill to attack %n", name);
+                break;
             default:
                 System.out.printf("%s, excuse me, enter the right number, please! %n", name);
+                break;
         }
     }
 }
