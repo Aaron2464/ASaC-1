@@ -3,26 +3,35 @@ package com.example.aaron.assignmentsw1;
 import java.util.Scanner;
 
 public class Human {
+   public static String name;
 
+   public Human(String name) {
+      System.out.printf("%s ! There is some jobs that you can choose.%n", name);
+      System.out.printf("(1)Mage(2)Hunter(3)Warrior%n");
+      System.out.print("Type the number to choose your jobs:  ");
+      int Job = scanner.nextInt();
+      Jobs(Job);
+   }
+
+   public Human() {
+   }
+
+   public static void main(String[] args) {
+      String name = getName();
+      Human human = new Human(name);
+   }
    static Scanner scanner = null;
-   private String name;
    public final static int FIRE_BOW = 0x01;
    public final static int ICE_BOW = 0x02;
 
-   public Human(){
 
-   }
-   public String getName(){
+   public static String getName(){
       System.out.print("Please, enter your name:");
       name = scanner.nextLine();
       return name;
    }
 
-   public void Jobs(){
-      System.out.printf("%s ! There is some jobs that you can choose.%n", getName());
-      System.out.printf("(1)Mage(2)Hunter(3)Warrior%n");
-      System.out.print("Type the number to choose your jobs:  ");
-      int Job = scanner.nextInt();
+   public void Jobs(int Job){
       switch (Job) {
          case 1:
          {
