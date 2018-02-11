@@ -9,6 +9,10 @@ class Mage extends Human {
     public final static int Fire_Staff = 0x01;
     public final static int Ice_Staff = 0x02;
 
+    public Mage() {
+
+    }
+
     @Override
     public void attack() {
         System.out.printf("(1)Weapon: Default Staff / Skill: Arcane Missiles \n(2)Weapon: Fire Staff / Skill: Fireball \n(3)Weapon: Ice Staff / Skill: Frostbolt%n");

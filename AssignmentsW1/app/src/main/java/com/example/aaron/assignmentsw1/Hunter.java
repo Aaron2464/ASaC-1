@@ -6,6 +6,13 @@ package com.example.aaron.assignmentsw1;
 
 class Hunter extends Human {
 
+    public final static int Fire_Bow = 0x01;
+    public final static int Ice_Bow = 0x02;
+
+    public Hunter() {
+
+    }
+
     @Override
     public void attack() {
         System.out.printf("(1)Weapon: Default Bow / Skill: Arrow \n(2)Weapon: Fire Bow / Skill: Fire Arrow \n(3)Weapon: Ice Bow / Skill: Ice Arrow%n");

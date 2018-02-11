@@ -6,6 +6,13 @@ package com.example.aaron.assignmentsw1;
 
 class Warrior extends Human {
 
+    public final static int Fire_Blade = 0x01;
+    public final static int Ice_Blade = 0x02;
+
+    public Warrior() {
+
+    }
+
     @Override
     public void attack() {
         System.out.printf("(1)Weapon: Default Blade / Skill: Slash \n(2)Weapon: Fire Blade / Skill: Fire Slash \n(3)Weapon: Ice Blade / Skill: ISlash%n");
