@@ -43,8 +43,66 @@ public class Calculator extends AppCompatActivity {
         public void onClick(View v) {
             String show = txtshow.getText().toString();
             Button btn = (Button)findViewById(v.getId());
-            txtshow.setText(show + btn.getText());
+            switch (v.getId()){
+                case R.id.btnC:
+                    txtshow.setText("");
+                    break;
+                case R.id.btnADD:
+                    String lastStr = show.substring(show.length()-1,show.length());
+                    if (lastStr.equals("+") || lastStr.equals("-") || lastStr.equals("×") || lastStr.equals("÷")) {
 
+                    } else {
+                        txtshow.setText(show + "+");
+                    }
+                    break;
+                case R.id.btnS:
+                    lastStr = show.substring(show.length()-1,show.length());
+                    if (lastStr.equals("+") || lastStr.equals("-") || lastStr.equals("×") || lastStr.equals("÷")) {
+
+                    } else {
+                        txtshow.setText(show + "-");
+                    }
+                    break;
+                case R.id.btnMu:
+                    lastStr = show.substring(show.length()-1,show.length());
+                    if (lastStr.equals("+") || lastStr.equals("-") || lastStr.equals("×") || lastStr.equals("÷")) {
+
+                    } else {
+                        txtshow.setText(show + "×");
+                    }
+                    break;
+                case R.id.btnD:
+                    lastStr = show.substring(show.length()-1,show.length());
+                    if (lastStr.equals("+") || lastStr.equals("-") || lastStr.equals("×") || lastStr.equals("÷")) {
+
+                    } else {
+                        txtshow.setText(show + "÷");
+                    }
+                    break;
+                case R.id.btnPo:
+                    lastStr = show.substring(show.length()-1,show.length());
+                    if (lastStr.equals("+") || lastStr.equals("-") || lastStr.equals("×") || lastStr.equals("÷")) {
+                        txtshow.setText(show + "0.");
+                    }else if(lastStr.equals(".")){
+
+                    }
+                    else {
+                        txtshow.setText(show + ".");
+                    }
+                    break;
+                case R.id.btn0:
+                    if (show.equals("0")||show.equals("+") || show.equals("-") || show.equals("×") || show.equals("÷")) {
+                        txtshow.setText("0");
+                    } else {
+                        txtshow.setText(show + "0");
+                    }
+                    break;
+                case R.id.btnE:
+                    break;
+                default:
+                    txtshow.setText(show + btn.getText());
+                    break;
+            }
         }
     };
 
