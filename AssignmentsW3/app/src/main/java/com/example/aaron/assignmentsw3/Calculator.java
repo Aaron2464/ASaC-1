@@ -144,7 +144,7 @@ public class Calculator extends AppCompatActivity {
                                 } else {
                                     if (numArray[i + 2].equals("×") || numArray[i + 2].equals("÷")) {
                                         count = Double.parseDouble(numArray[i + 1]);
-                                        for (int j = i + 2; j <= numArray.length; j = j + 2) {
+                                        for (int j = i + 2; j < numArray.length; j = j + 2) {
                                             if (numArray[j].equals("×")) {
                                                 count = count * Double.parseDouble(numArray[j + 1]);
                                                 i = i + 2;
