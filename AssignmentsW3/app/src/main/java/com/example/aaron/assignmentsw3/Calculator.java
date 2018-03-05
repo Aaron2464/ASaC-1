@@ -112,15 +112,29 @@ public class Calculator extends AppCompatActivity {
                     }
                     break;
                 case R.id.btnCS:
-                    Double lastnum = Double.parseDouble(numArray[numArray.length-1]);
                     lastStr = show.substring(show.length()-1,show.length());
                     if (lastStr.equals(" ")){
 
                     }else {
+                        Double lastnum = Double.parseDouble(numArray[numArray.length-1]);
                         if (lastnum > 0) {
-
+                            numArray[numArray.length-1] = "-" + numArray[numArray.length-1];
+                            txtshow.setText("");
+                            String newshow = null;
+                            for(int i = 0; i < numArray.length ; i++){
+                                newshow = txtshow.getText().toString();
+                                txtshow.setText((newshow + numArray[i] + " "));
+                            }
+                            txtshow.setText(newshow + numArray[numArray.length-1]);
                         } else if (lastnum < 0) {
-
+                            numArray[numArray.length-1] = numArray[numArray.length-1].replace("-","");
+                            txtshow.setText("");
+                            String newshow = null;
+                            for(int i = 0; i < numArray.length ; i++){
+                                newshow = txtshow.getText().toString();
+                                txtshow.setText((newshow + numArray[i] + " "));
+                            }
+                            txtshow.setText(newshow + numArray[numArray.length-1]);
                         } else {
 
                         }
