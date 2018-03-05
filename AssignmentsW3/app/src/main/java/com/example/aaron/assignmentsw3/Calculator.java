@@ -103,6 +103,21 @@ public class Calculator extends AppCompatActivity {
                         txtshow.setText(show + "0");
                     }
                     break;
+                case R.id.btnCS:
+                    Double lastnum = Double.parseDouble(numArray[numArray.length-1]);
+                    lastStr = show.substring(show.length()-1,show.length());
+                    if (lastStr.equals(" ")){
+
+                    }else {
+                        if (lastnum > 0) {
+
+                        } else if (lastnum < 0) {
+
+                        } else {
+
+                        }
+                    }
+                    break;
                 case R.id.btnE:
                     sum = 0;
                     count = 0;
