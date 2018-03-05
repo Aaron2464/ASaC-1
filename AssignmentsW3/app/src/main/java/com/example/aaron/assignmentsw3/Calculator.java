@@ -89,7 +89,7 @@ public class Calculator extends AppCompatActivity {
                     lastStr = show.substring(show.length()-1,show.length());
                     if (lastStr.equals(" ")) {
                         txtshow.setText(show + "0.");
-                    }else if(lastStr.equals(".")){
+                    }else if(numArray[numArray.length-1].contains(".")){
 
                     }
                     else {
