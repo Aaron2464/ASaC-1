@@ -103,6 +103,14 @@ public class Calculator extends AppCompatActivity {
                         txtshow.setText(show + "0");
                     }
                     break;
+                case R.id.btnPC:
+                    lastStr = show.substring(show.length()-1,show.length());
+                    if (lastStr.equals(" ")){
+
+                    }else {
+                        txtshow.setText(show + "%");
+                    }
+                    break;
                 case R.id.btnCS:
                     Double lastnum = Double.parseDouble(numArray[numArray.length-1]);
                     lastStr = show.substring(show.length()-1,show.length());
@@ -181,8 +189,12 @@ public class Calculator extends AppCompatActivity {
                     }
                     break;
                 default:
-                    txtshow.setText(show + btn.getText());
-                    break;
+                    if (numArray[numArray.length-1].contains("%")){
+
+                    }else {
+                        txtshow.setText(show + btn.getText());
+                        break;
+                    }
             }
         }
     };
