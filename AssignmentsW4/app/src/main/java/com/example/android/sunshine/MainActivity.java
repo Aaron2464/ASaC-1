@@ -25,6 +25,7 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -78,12 +79,17 @@ public class MainActivity extends AppCompatActivity implements
         mRecyclerView.setLayoutManager(layoutManager);
 
         mRecyclerView.setHasFixedSize(true);
-        mForecastAdapter = new ForecastAdapter(this, this);
+        mForecastAdapter = new ForecastAdapter(this, this );
         mRecyclerView.setAdapter(mForecastAdapter);
+
 
         showLoading();
         getSupportLoaderManager().initLoader(ID_FORECAST_LOADER, null, this);
         SunshineSyncUtils.initialize(this);
+
+        ItemTouchHelper.Callback callback = new RecycleItemTouchHelper(mForecastAdapter);   //先實例化Callback
+        ItemTouchHelper touchHelper = new ItemTouchHelper(callback);                         //用Callback構造 ItemtouchHelper
+        touchHelper.attachToRecyclerView(mRecyclerView);                                    //調用ItemTouchHelper的attachToRecyclerView方法建立聯絡
     }
 
     private void openPreferredLocationInMap() {
@@ -104,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public Loader<Cursor> onCreateLoader(int loaderId, Bundle bundle) {
-
 
         switch (loaderId) {
 

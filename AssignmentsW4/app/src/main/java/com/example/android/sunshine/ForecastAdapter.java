@@ -28,11 +28,16 @@ import android.widget.TextView;
 import com.example.android.sunshine.utilities.SunshineDateUtils;
 import com.example.android.sunshine.utilities.SunshineWeatherUtils;
 
-class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapterViewHolder> {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapterViewHolder> implements ItemMoveSwipeListener{
 
     private static final int VIEW_TYPE_TODAY = 0;
     private static final int VIEW_TYPE_FUTURE_DAY = 1;
     private final Context mContext;
+    public List<String> list = new ArrayList<>();
 
     final private ForecastAdapterOnClickHandler mClickHandler;
 
@@ -51,21 +56,16 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
 
     @Override
     public ForecastAdapterViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-
         int layoutId;
-
         switch (viewType) {
-
             case VIEW_TYPE_TODAY: {
                 layoutId = R.layout.list_item_forecast_today;
                 break;
             }
-
             case VIEW_TYPE_FUTURE_DAY: {
                 layoutId = R.layout.forecast_list_item;
                 break;
             }
-
             default:
                 throw new IllegalArgumentException("Invalid view type, value of " + viewType);
         }
@@ -147,7 +147,7 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
         notifyDataSetChanged();
     }
 
-    class ForecastAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class ForecastAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         final ImageView iconView;
 
         final TextView dateView;
@@ -174,5 +174,19 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
             long dateInMillis = mCursor.getLong(MainActivity.INDEX_WEATHER_DATE);
             mClickHandler.onClick(dateInMillis);
         }
+
+    }
+    @Override
+    public boolean onItemMove(int fromPosition, int toPosition) {
+        // Collections.swap() 該方法是用來交換位置
+        Collections.swap(list, fromPosition, toPosition);
+        notifyItemMoved(fromPosition, toPosition);
+        return true;
+    }
+
+    @Override
+    public void onItemDismiss(int position) {
+        list.remove(position);
+        notifyItemRemoved(position);
     }
 }
