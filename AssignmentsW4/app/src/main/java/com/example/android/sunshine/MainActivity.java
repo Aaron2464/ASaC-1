@@ -37,11 +37,14 @@ import com.example.android.sunshine.data.SunshinePreferences;
 import com.example.android.sunshine.data.WeatherContract;
 import com.example.android.sunshine.sync.SunshineSyncUtils;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor>,
         ForecastAdapter.ForecastAdapterOnClickHandler {
 
     private final String TAG = MainActivity.class.getSimpleName();
+    public ArrayList list = new ArrayList<>();
 
     public static final String[] MAIN_FORECAST_PROJECTION = {
             WeatherContract.WeatherEntry.COLUMN_DATE,
@@ -79,9 +82,8 @@ public class MainActivity extends AppCompatActivity implements
         mRecyclerView.setLayoutManager(layoutManager);
 
         mRecyclerView.setHasFixedSize(true);
-        mForecastAdapter = new ForecastAdapter(this, this );
+        mForecastAdapter = new ForecastAdapter(this, this, list);
         mRecyclerView.setAdapter(mForecastAdapter);
-
 
         showLoading();
         getSupportLoaderManager().initLoader(ID_FORECAST_LOADER, null, this);

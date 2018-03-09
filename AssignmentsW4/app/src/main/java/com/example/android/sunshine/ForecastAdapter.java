@@ -30,14 +30,13 @@ import com.example.android.sunshine.utilities.SunshineWeatherUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapterViewHolder> implements ItemMoveSwipeListener{
 
     private static final int VIEW_TYPE_TODAY = 0;
     private static final int VIEW_TYPE_FUTURE_DAY = 1;
     private final Context mContext;
-    public List<String> list = new ArrayList<>();
+    public ArrayList list;
 
     final private ForecastAdapterOnClickHandler mClickHandler;
 
@@ -48,7 +47,8 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
     private boolean mUseTodayLayout;
     private Cursor mCursor;
 
-    public ForecastAdapter(@NonNull Context context, ForecastAdapterOnClickHandler clickHandler) {
+    public ForecastAdapter(@NonNull Context context, ForecastAdapterOnClickHandler clickHandler, ArrayList list) {
+        this.list = list;
         mContext = context;
         mClickHandler = clickHandler;
         mUseTodayLayout = mContext.getResources().getBoolean(R.bool.use_today_layout);
@@ -82,6 +82,7 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
         int weatherId = mCursor.getInt(MainActivity.INDEX_WEATHER_CONDITION_ID);
         int weatherImageId;
         int viewType = getItemViewType(position);
+        list.add(mCursor);
 
         switch (viewType) {
 

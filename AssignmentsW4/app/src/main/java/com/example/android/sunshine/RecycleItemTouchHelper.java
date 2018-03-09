@@ -43,8 +43,4 @@ public class RecycleItemTouchHelper extends ItemTouchHelper.Callback{
         Log.e(TAG, "onSwiped: ");
         mListener.onItemDismiss(viewHolder.getAdapterPosition());
     }
-    @Override
-    public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
-        super.onSelectedChanged(viewHolder, actionState);
-    }
 }
